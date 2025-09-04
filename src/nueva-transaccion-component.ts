@@ -33,11 +33,11 @@ elementoFormulario.addEventListener("submit", function (event) {
     return;
   }
   elementoSaldo.textContent = saldo.toString();
-  const nuevaTransaccion = {
+
+  const nuevaTransaccion: Transaccion = {
     tipoTransaccion: tipoTransaccion,
     valor: valor,
-    fecha: fecha,
-    esNueva:true
+    fecha: fecha
   };
 
   console.log(nuevaTransaccion);

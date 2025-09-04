@@ -26,8 +26,7 @@ elementoFormulario.addEventListener("submit", function (event) {
     const nuevaTransaccion = {
         tipoTransaccion: tipoTransaccion,
         valor: valor,
-        fecha: fecha,
-        esNueva: true
+        fecha: fecha
     };
     console.log(nuevaTransaccion);
     elementoFormulario.reset();
