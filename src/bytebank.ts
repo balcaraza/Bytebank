@@ -1,4 +1,6 @@
 let saldo = 3125;
+
+alert("hola estamos probando");
 const elementoSaldo = document.querySelector(
   ".saldo-valor .valor"
 ) as HTMLElement;
