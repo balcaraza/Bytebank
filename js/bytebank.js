@@ -1,42 +1,39 @@
-let saldo =3125;
-const elementoSaldo = document.querySelector(".saldo-valor .valor");
-
-elementoSaldo.textContent =  saldo;
-
-const elementoFormulario = document.querySelector(".block-nueva-transaccion form");
-
+var saldo = 3125;
+var elementoSaldo = document.querySelector(".saldo-valor .valor");
+if (elementoSaldo) {
+    elementoSaldo.textContent = saldo.toString();
+}
+var elementoFormulario = document.querySelector(".block-nueva-transaccion form");
 elementoFormulario.addEventListener("submit", function (event) {
     event.preventDefault();
-    if(!elementoFormulario.checkValidity()){
+    if (!elementoFormulario.checkValidity()) {
         alert("Por favor rellene todos los campos de la transacción");
         return;
     }
-    const inputTipoTransaccion = elementoFormulario.querySelector("#tipoTransaccion");
-    const inputValor = elementoFormulario.querySelector("#valor");
-    const inputFecha = elementoFormulario.querySelector("#fecha");
-
-    let tipoTransaccion = inputTipoTransaccion.value;
-    let valor = parseFloat(inputValor.value);
-    let fecha =inputFecha.value;
-
-    if (tipoTransaccion=="Depósito") {
-        saldo +=valor;
-    } else if (tipoTransaccion=="Transferencia" || tipoTransaccion=="Pago de factura") {
+    var inputTipoTransaccion = elementoFormulario.querySelector("#tipoTransaccion");
+    var inputValor = elementoFormulario.querySelector("#valor");
+    var inputFecha = elementoFormulario.querySelector("#fecha");
+    var tipoTransaccion = inputTipoTransaccion.value;
+    var valor = inputValor.valueAsNumber;
+    var fecha = new Date(inputFecha.value);
+    if (tipoTransaccion == "Depósito") {
+        saldo += valor;
+    }
+    else if (tipoTransaccion == "Transferencia" ||
+        tipoTransaccion == "Pago de factura") {
         saldo -= valor;
-    } else{
+    }
+    else {
         alert("Tipo de transaccion invalida");
         return;
     }
-    elementoSaldo.textContent=saldo;
-    const nuevaTransaccion ={
-        tipoTransaccion:tipoTransaccion,
-        valor:valor,
-        fecha:fecha
-    }
-
+    elementoSaldo.textContent = saldo.toString();
+    var nuevaTransaccion = {
+        tipoTransaccion: tipoTransaccion,
+        valor: valor,
+        fecha: fecha,
+        esNueva: true
+    };
     console.log(nuevaTransaccion);
     elementoFormulario.reset();
-
-    
-    
-})
+});
