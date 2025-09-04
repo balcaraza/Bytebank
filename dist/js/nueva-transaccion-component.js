@@ -1,9 +1,3 @@
-let saldo = 3125;
-alert("hola estamos probando");
-const elementoSaldo = document.querySelector(".saldo-valor .valor");
-if (elementoSaldo) {
-    elementoSaldo.textContent = saldo.toString();
-}
 const elementoFormulario = document.querySelector(".block-nueva-transaccion form");
 elementoFormulario.addEventListener("submit", function (event) {
     event.preventDefault();
