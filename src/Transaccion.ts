@@ -1,5 +1,5 @@
 type Transaccion ={
-    tipoTransaccion: string,
+    tipoTransaccion: TipoTransaccion,
     valor: Number,
     fecha: Date
 }

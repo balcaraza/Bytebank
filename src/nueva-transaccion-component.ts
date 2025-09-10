@@ -17,15 +17,15 @@ elementoFormulario.addEventListener("submit", function (event) {
     "#fecha"
   ) as HTMLInputElement;
 
-  let tipoTransaccion = inputTipoTransaccion.value;
+  let tipoTransaccion = inputTipoTransaccion.value as TipoTransaccion;
   let valor = inputValor.valueAsNumber;
   let fecha: Date = new Date(inputFecha.value);
 
-  if (tipoTransaccion == "Depósito") {
+  if (tipoTransaccion == TipoTransaccion.DEPOSITO) {
     saldo += valor;
   } else if (
-    tipoTransaccion == "Transferencia" ||
-    tipoTransaccion == "Pago de factura"
+    tipoTransaccion == TipoTransaccion.TRANSFERENCIA ||
+    tipoTransaccion == TipoTransaccion.PAGO_FACTURA
   ) {
     saldo -= valor;
   } else {
